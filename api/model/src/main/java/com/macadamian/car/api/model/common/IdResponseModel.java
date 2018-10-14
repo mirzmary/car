@@ -5,12 +5,6 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
-/**
- * User: Mary Mirzoyan
- * Company: SFL LLC
- * Date: 11/23/17
- * Time: 11:18 AM
- */
 public class IdResponseModel extends FacadeModel {
 
     private static final long serialVersionUID = -3674417567296954655L;
