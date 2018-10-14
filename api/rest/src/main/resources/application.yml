@@ -1,0 +1,32 @@
+server:
+  port: 8989
+
+persistence:
+   pool:
+      maxsize: 10
+   database:
+      username: postgres
+      password: postgres
+      url: jdbc:postgresql://localhost:5432/car
+      driverclassname: org.postgresql.Driver
+   jpa:
+      persistenceunitname: car-jpa-persistence-unit
+   hibernate:
+      outputsqlstatements: true
+      generateddl: true
+      databasedialect: org.hibernate.dialect.PostgreSQLDialect
+      formatsql: true
+      hbmddlconversion: create
+      generatestatistics: true
+      globally_quoted_identifiers: false
+      hbm2ddl:
+        auto: create
+      jdbc:
+         fetchsize: 20
+         batchsize: 20
+   utility:
+      commit:
+         runner:
+            threads:
+               max: 25
+

@@ -1,0 +1,135 @@
+   
+    create table brand (
+       id  bigserial not null,
+        creation_date timestamp,
+        remove_date timestamp,
+        update_date timestamp,
+        name varchar(255),
+        primary key (id)
+    )
+    
+    create table car (
+       id  bigserial not null,
+        creation_date timestamp,
+        remove_date timestamp,
+        update_date timestamp,
+        price numeric(19, 2),
+        year int4,
+        brand_id int8,
+        color_id int8,
+        model_id int8,
+        primary key (id)
+    )
+    
+    create table car_feature (
+       id  bigserial not null,
+        creation_date timestamp,
+        remove_date timestamp,
+        update_date timestamp,
+        car_id int8,
+        feature_id int8,
+        feature_value_id int8,
+        primary key (id)
+    )
+    
+    create table color (
+       id  bigserial not null,
+        creation_date timestamp,
+        remove_date timestamp,
+        update_date timestamp,
+        name varchar(255),
+        primary key (id)
+    )
+    
+    create table feature (
+       id  bigserial not null,
+        creation_date timestamp,
+        remove_date timestamp,
+        update_date timestamp,
+        main boolean,
+        name varchar(255),
+        primary key (id)
+    )
+    
+    create table feature_value (
+       id  bigserial not null,
+        creation_date timestamp,
+        remove_date timestamp,
+        update_date timestamp,
+        value varchar(255),
+        feature_id int8,
+        primary key (id)
+    )
+    
+    create table model (
+       id  bigserial not null,
+        creation_date timestamp,
+        remove_date timestamp,
+        update_date timestamp,
+        name varchar(255),
+        primary key (id)
+    )
+    
+    create table users (
+       id  bigserial not null,
+        creation_date timestamp,
+        remove_date timestamp,
+        update_date timestamp,
+        birth_date date,
+        first_name varchar(255),
+        last_name varchar(255),
+        login varchar(255),
+        password varchar(255),
+        role varchar(255),
+        primary key (id)
+    )
+    
+    alter table car 
+       add constraint FKj1mws2ruu9q6k2sa4pwlxthxn 
+       foreign key (brand_id) 
+       references brand
+    
+    alter table car 
+       add constraint FKg0jvjcwntclcjd9cd2vmta820 
+       foreign key (color_id) 
+       references color
+    
+    alter table car 
+       add constraint FK772uqy9hm5yicyxh9t6x6vusr 
+       foreign key (model_id) 
+       references model
+    
+    alter table car_feature 
+       add constraint FKd86e0b4v70sx9onvqpf3hc81h 
+       foreign key (car_id) 
+       references car
+    
+    alter table car_feature 
+       add constraint FKgqgv3iyd1518909jkijos3tg3 
+       foreign key (feature_id) 
+       references feature
+    
+    alter table car_feature 
+       add constraint FKowfdmxhippwg6jyinrnxqcvry 
+       foreign key (feature_value_id) 
+       references feature_value
+    
+    alter table feature_value 
+       add constraint FKbk2a280nbak52fy7wx4pipkv9 
+       foreign key (feature_id) 
+       references feature
+	   
+	    INSERT INTO Brand (id, name) VALUES (1, 'Toyota');
+		INSERT INTO Brand (id, name) VALUES (2, 'Hyundai');
+		INSERT INTO Brand (id, name) VALUES (3, 'BMW');
+
+		INSERT INTO Model(id, name) VALUES (1, 'Camry');
+		INSERT INTO Model(id, name) VALUES (2, 'Corolla');
+
+		INSERT INTO Color(id, name) VALUES (1, 'White');
+		INSERT INTO Color(id, name) VALUES (2, 'Black');
+		INSERT INTO Color(id, name) VALUES (3, 'Silver');
+		INSERT INTO Color(id, name) VALUES (4, 'Yellow');
+
+		INSERT INTO users(id, login, password, role, first_name, last_name) VALUES (1, 'user', 'user', 'user', 'user', 'user');
+		INSERT INTO users(id, login, password, role, first_name, last_name) VALUES (2, 'admin', 'admin', 'admin', 'admin', 'admin');

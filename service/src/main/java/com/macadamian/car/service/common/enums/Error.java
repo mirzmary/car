@@ -1,0 +1,15 @@
+package com.macadamian.car.service.common.enums;
+
+public enum Error {
+    GENERAL_ERROR,
+
+    INVALID_CAR_BRAND,
+    INVALID_CAR_MODEL,
+    INVALID_CAR_COLOR,
+    INVALID_CAR_YEAR,
+    INVALID_CAR_PRICE,
+    INVALID_FEATURE_NAME,
+    INVALID_FEATURE_VALUES,
+    INVALID_FEATURE_ID,
+    INVALID_CAR_FEATURES
+}
